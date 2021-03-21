@@ -1,4 +1,11 @@
 //style.scss 文件，定义整个项目共用的 scss 样式
+* {
+    margin: 0;
+    padding: 0;
+}
 body {
     font-family: "weiruanyahei";
+}
+ul {
+    list-style: none;
 }
