@@ -41,3 +41,7 @@ export function checkCod(str) {
     let regExp = /^[a-zA-Z0-9]{6}$/;
     return !regExp.test(str);
 }
+
+/**
+ * 仅使用 export 时，可以多次使用，当使用 import 引入时必须加花括号
+ */
