@@ -11,12 +11,22 @@ module.exports = {
    * webpack配置,see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
    **/
   chainWebpack: (config) => {
+    const svgRule = config.module.rule("svg");
+    svgRule.uses.clear();
+    svgRule
+    .use("svg-sprite-loader")
+    .loader("svg-sprite-loader")
+    .options({
+      symbolId: "icon-[name]",
+      include: ["./src/components/icon"]
+    });
   },
   configureWebpack: (config) => {
     config.resolve = { // 配置解析别名
       extensions: ['.js', '.json', '.vue'],   //自动添加文件名后缀
       alias: {
         '@': path.resolve(__dirname, './src'),
+        'vue': "vue/dist/vue.js",
         'components': path.resolve(__dirname, './src/components'),
         'views': path.resolve(__dirname, './src/views')
       }
@@ -34,7 +44,7 @@ module.exports = {
     loaderOptions: {
         // 如发现 css.modules 报错，请查看这里：http://www.web-jshtml.cn/#/detailed?id=12
         sass: { 
-            prependData: `@import "./src/style/style.scss";`
+            prependData: `@import "./src/style/main.scss";`
         }
     },
     // 启用 CSS modules for all css / pre-processor files.
@@ -61,7 +71,7 @@ module.exports = {
 			target: "http://www.web-jshtml.cn",	//API 服务器的地址
 			changeOrigin: true,
 			pathRewrite: {
-				'^/adminApi': '/productapi'
+				'^/adminApi': '/productapi/token'
 			}
 		}
     },

@@ -37,7 +37,7 @@
 	</div>
 </template>
 <script>
-import { GetSms, Register, Login } from "@/api/login"
+import { GetSms, Register } from "@/api/login"
 import { reactive, ref, onMounted } from "@vue/composition-api";
 import { stripscript, checkUname, checkPwd, checkCod } from "@/utils/check";
 export default {
@@ -176,7 +176,7 @@ export default {
 			setTimeout(() => {
 				GetSms({
 					username: account.username,
-					module: account.value
+					module: model.value
 				})
 				.then(res => {
 					//提示发送成功的消息
@@ -227,7 +227,7 @@ export default {
 		 * 登录请求
 		 */
 		const login = (() => {
-			Login({
+			context.root.$store.dispatch("app/login", {
 				username: account.username,
 				password: account.password,
 				code: account.code,
@@ -238,6 +238,11 @@ export default {
 					message: res.data.message,
 					type: 'success'
 				});
+				setTimeout(() => {
+					context.root.$router.push({
+						name: 'Console'
+					})
+				}, 2000);
 			}).catch(error => {
 				console.log(error)
 			});

@@ -1,0 +1,16 @@
+//*********** 后台管理系统主页面 ************
+$adminNavWidth: 250px;  //舒张时主页面导航栏宽度
+$adminNavWidthMin: 64px;//收缩时主页面导航栏宽度
+$adminHeadHeight: 75px; //主页面头部高度
+$navSelectedColor: #f56c6c; //导航一级菜单栏选中颜色
+$contentMainPadding: 30px;  //内容页面的内边距
+$iconNavLogo: 100px;    //导航栏上方的 logo 图标大小
+
+@mixin webkit($type, $value) {
+    -moz-#{ $type }: $value;
+    -webkit-#{ $type }:  $value;
+    -o-#{ $type }:  $value;
+    -ms-#{ $type }:  $value;
+    #{ $type }: $value;
+
+}
