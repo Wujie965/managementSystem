@@ -14,3 +14,19 @@ $iconNavLogo: 100px;    //导航栏上方的 logo 图标大小
     #{ $type }: $value;
 
 }
+
+@mixin line-label($width, $line-height: "normal") {
+    label {
+        float: left;
+        width: $width - 12 + px;
+        line-height: $line-height + px;
+        padding-right: 12px;
+        text-align: right;
+    }
+    .line-component {
+        margin-left: $width + px;
+        .component-fill {
+            width: 100%;
+        }
+    }
+}

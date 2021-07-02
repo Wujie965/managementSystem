@@ -37,9 +37,11 @@
 	</div>
 </template>
 <script>
-import { GetSms, Register } from "@/api/login"
+import { GetSms, Register } from "@/api/login";
 import { reactive, ref, onMounted } from "@vue/composition-api";
 import { stripscript, checkUname, checkPwd, checkCod } from "@/utils/check";
+import { Message } from "element-ui";
+
 export default {
 	name: "Login",
 	setup(props, context) {	//该方法放置 data 数据、生命周期、自定义函数等
@@ -136,7 +138,7 @@ export default {
 		const updateButtonStatus = ((status, text) => {
 			codeButton.status = status;
 			codeButton.text = text;
-		})
+		});
 
 		/**
 		 * 切换菜单
@@ -149,7 +151,7 @@ export default {
 
 			model.value = data.type;	//添加确认密码项
 
-			context.refs['loginForm'].resetFields();	//重置表单
+			context.refs["loginForm"].resetFields();	//重置表单
 
 			clearInterval(timer.value);	//清除计时器
 
@@ -161,12 +163,12 @@ export default {
 		 */
 		const getSms = (() => {
 			if(!account.username) {
-				context.root.$message.error("邮箱不能为空！");
+				Message.error("邮箱不能为空！");
 				return false;
 			}
 
 			if(checkUname(account.username)) {
-				context.root.$message.error("邮箱地址不规范，请核对后重新输入！");
+				Message.error("邮箱地址不规范，请核对后重新输入！");
 				return false;
 			}
 
@@ -180,7 +182,7 @@ export default {
 				})
 				.then(res => {
 					//提示发送成功的消息
-					context.root.$message({
+					Message({
 						message: res.data.message,
 						type: 'success'
 					});
@@ -207,7 +209,7 @@ export default {
 			})
 			.then(res => {
 				//提示注册成功的消息
-				context.root.$message({
+				Message({
 					message: res.data.message,
 					type: 'success'
 				});
@@ -234,7 +236,7 @@ export default {
 				moudle: "login"
 			}).then(res => {
 				//提示登录成功的消息
-				context.root.$message({
+				Message({
 					message: res.data.message,
 					type: 'success'
 				});
@@ -251,13 +253,13 @@ export default {
 		/**
 		 * 提交表单
 		 */
-		const submitLogin = (formName => {
+		const submitLogin = ((formName) => {
 			context.refs[formName].validate((valid) => {
 				if (valid) {
 					model.value == "login" ? login() : reigster();
 				}
 				else {
-					console.log('error submit!!');
+					console.log("error submit!!");
 					return false;
 				}
 			});
@@ -281,15 +283,6 @@ export default {
 			//清除定时器
 			clearInterval(timer.value);
 		});
-
-		/**
-		 * 生命周期
-		 * 挂在完成之后
-		 */
-		onMounted(() => {
-			//
-			
-		})
 
 		return {
 			menuTab,

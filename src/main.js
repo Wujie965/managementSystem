@@ -1,23 +1,25 @@
 import Vue from "vue";
-//---------------  add composition-api -----------------
-import VueCompositionApi from '@vue/composition-api';
-//----------------------  end --------------------------
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-//-----------  register global components --------------
+//-----------  register global-components --------------
 import "./components/icon";
 //----------------------  end --------------------------
+
 //-----------------  router defend ---------------------
 import "./router/defend";
 //----------------------  end --------------------------
+
 //------------------  add element-ui -------------------
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 
 Vue.use(ElementUI);
 //----------------------  end --------------------------
+
 //---------------  add composition-api -----------------
+import VueCompositionApi from '@vue/composition-api';
+
 Vue.use(VueCompositionApi);
 //----------------------  end --------------------------
 

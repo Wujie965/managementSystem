@@ -1,25 +1,62 @@
-.el-menu{
-    border: 0;
-    .el-submenu {
-        .el-menu-item {
-            font-size: 14px;
-            padding-left: 50px !important;
-            &.is-active {
-                background-color: rgba(245, 108, 108, 0.2) !important;
+
+.admin-nav {
+    //-------------------------- 导航栏 -----------------------------
+    .el-menu{
+        border: 0;
+        .el-submenu {
+            .el-menu-item {
+                font-size: 15px;
+                padding-left: 50px !important;
+                &.is-active {
+                    background-color: rgba(245, 108, 108, 0.2) !important;
+                }
+            }
+            
+            .el-submenu__title {
+                font-size: 15px;
+            }
+
+            &.is-active.is-opened .el-submenu__title {
+                background-color: $navSelectedColor !important;
             }
         }
+    }
     
-        &.is-active.is-opened .el-submenu__title {
-            background-color: $navSelectedColor !important;
+    .el-menu--vertical {
+        .el-menu-item {
+            background-color: #344a5f !important;
+        }
+        .el-menu-item:hover {
+            background-color: #ccc !important;
         }
     }
 }
 
-.el-menu--vertical {
-    .el-menu-item {
-        background-color: #344a5f !important;
+//------------------------------ 表格 -----------------------------------
+.el-table {
+    td, th {
+        text-align: center;
     }
-    .el-menu-item:hover {
-        background-color: #ccc !important;
+    thead {
+        color: #344a5f;
     }
+}
+
+//------------------------------ 弹出层 -----------------------------------
+.el-dialog__body {
+    padding: 30px 47px !important;
+}
+.el-dialog__footer {
+    text-align: center !important;
+    padding-bottom: 50px !important;
+    .el-button {
+        font-size: 15px;
+        width: 150px;
+        margin: 0 11px;
+    }
+}
+
+//------------------------------ 表单 -----------------------------------
+.el-form-item:last-child {
+    margin-bottom: 0 !important;
 }

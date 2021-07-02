@@ -4,7 +4,8 @@
     </svg>
 </template>
 <script>
-import { ref, computed } from '@vue/composition-api'
+import { computed } from "@vue/composition-api";
+
 export default {
     name: "svgIcon",
     // props: ["iconClass", "iconUrl"],

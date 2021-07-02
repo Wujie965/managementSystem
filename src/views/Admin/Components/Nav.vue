@@ -24,7 +24,8 @@
     </div>
 </template>
 <script>
-import { ref, reactive, computed } from "@vue/composition-api"
+import { reactive, computed } from "@vue/composition-api";
+
 export default {
     name: "adminNav",
     setup(props, context) {

@@ -10,7 +10,7 @@
     </div>
 </template>
 <script>
-import SvgIcon from '../../../components/icon/SvgIcon.vue';
+import SvgIcon from '@/components/icon/SvgIcon';
 import { computed } from "@vue/composition-api";
 
 export default {

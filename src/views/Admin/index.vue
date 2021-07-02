@@ -6,10 +6,10 @@
     </div>
 </template>
 <script>
-import AdminNav from "./Components/Nav"
-import AdminHead from "./Components/Head"
-import AdminMain from "./Components/Main"
-import { computed } from "@vue/composition-api"
+import AdminNav from "./Components/Nav";
+import AdminHead from "./Components/Head";
+import AdminMain from "./Components/Main";
+import { computed } from "@vue/composition-api";
 
 export default {
     name: "admin",

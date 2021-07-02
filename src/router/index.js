@@ -60,8 +60,8 @@ const routes = [
     component: Admin,
     children: [
     {
-      path: "/infoIndex",
-      name: "InfoIndex",
+      path: "/infoList",
+      name: "InfoList",
       isDisplay: true,
       meta: {
         name: "信息列表"

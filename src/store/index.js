@@ -4,10 +4,14 @@ Vue.use(Vuex);
 
 import app from "./moudles/app";
 import login from "./moudles/login";
+import category from "./moudles/category";
+import news from "./moudles/news";
 
 export default new Vuex.Store({
-  modules: {
-    app,
-    login
-  }
+    modules: {
+        app,
+        login,
+        category,
+        news
+    }
 });

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Message } from "element-ui";
+import { getToken, getUsername } from "@/utils/common";
 
 const BASEURL = process.env.NODE_ENV === "production" ? "" : "/adminApi"
 
@@ -14,6 +15,9 @@ const service = axios.create({
 // 添加请求拦截器
 service.interceptors.request.use(function (config) {
     // 在发送请求之前做些什么
+    config.headers["Tokey"] = getToken();
+    config.headers["UserName"] = getUsername();
+
     return config;
 }, function (error) {
     // 对请求错误做些什么
@@ -27,7 +31,6 @@ service.interceptors.response.use(function (response) {
 
     //解析响应数据，若存在错误，则抛出错误，否则返回响应数据
     if(data.resCode != 0) {
-        Message.error(data.message);
         return Promise.reject(data);
     }
 
